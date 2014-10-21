@@ -69,6 +69,9 @@ UpdateHelper通过接口返回的数据versionCode，与当前app的versionCode�
 Note:当遇到网络中断或阻塞等问题时，处理方式也为提示*当前版本是最新版*。
 	
 ###截图
+![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/UpdateDialog.png)
+![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/Downloading.png)
+![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/Downloaded.png)
 
 ###License
 >Copyright 2014 ShelWee(http://www.shelwee.com)
