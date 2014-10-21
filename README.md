@@ -1,10 +1,10 @@
 #UpdateHelper
 
-###UpdateHelpers是什么？
+##UpdateHelpers是什么？
 UpdateHelper是一个Android Library项目。
-###UpdateHelpers是干什么的？
+##UpdateHelpers是干什么的？
 这个项目是为了简化Android App的迭代升级开发，任何一个项目只要引入这个library便集成了在线检查新版本的功能以及下载APK功能。
-###UpdateHelpers要怎么使用？
+##UpdateHelpers要怎么使用？
 **1.首先服务器端需要提供一个接口,返回json数据格式如下：**
 ```Java
     {   
@@ -59,21 +59,21 @@ UpdateHelper是一个Android Library项目。
 		});
     */
 ```
-###UpdateHelper需要哪些权限？
+##UpdateHelper需要哪些权限？
 ```java
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 ```
-###UpdateHelper原理是什么？
+##UpdateHelper原理是什么？
 UpdateHelper通过接口返回的数据versionCode，与当前app的versionCode匹配，如果版本号比当前app的versionCode大，则存在新版本，弹出**更新提示**对话框；否则提示*当前版本是最新版*。
 Note:当遇到网络中断或阻塞等问题时，处理方式也为提示*当前版本是最新版*。
 	
-###截图
+##截图
 ![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/UpdateDialog.png)
 ![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/Downloading.png)
 ![](https://github.com/shelwee/ImageStorage/raw/master/UpdateHelper/Downloaded.png)
 
-###License
+##License
 >Copyright 2014 ShelWee(http://www.shelwee.com)
 
 >Licensed under the Apache License, Version 2.0 (the "License");
