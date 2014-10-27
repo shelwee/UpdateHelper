@@ -35,6 +35,7 @@ import com.shelwee.update.listener.OnUpdateListener;
 import com.shelwee.update.pojo.UpdateInfo;
 import com.shelwee.update.utils.HttpRequest;
 import com.shelwee.update.utils.JSONHandler;
+import com.shelwee.update.utils.NetWorkUtils;
 import com.shelwee.update.utils.URLUtils;
 
 /**
@@ -136,6 +137,35 @@ public class UpdateHelper {
 		AsyncCheck asyncCheck = new AsyncCheck();
 		asyncCheck.execute(checkUrl);
 	}
+	
+	/**
+	 * 2014-10-27新增流量提示框，当网络为数据流量方式时，下载就会弹出此对话框提示
+	 * @param updateInfo
+	 */
+	private void showNetDialog(final UpdateInfo updateInfo){
+		AlertDialog.Builder netBuilder = new AlertDialog.Builder(mContext);
+		netBuilder.setTitle("下载提示");
+		netBuilder.setMessage("您在目前的网络环境下继续下载将可能会消耗手机流量，请确认是否继续下载？");
+		netBuilder.setNegativeButton("取消下载",
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+		netBuilder.setPositiveButton("继续下载",
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						AsyncDownLoad asyncDownLoad = new AsyncDownLoad();
+						asyncDownLoad.execute(updateInfo);
+					}
+				});
+		AlertDialog netDialog = netBuilder.create();
+		netDialog.setCanceledOnTouchOutside(false);
+		netDialog.show();
+	}
 
 	/**
 	 * 弹出提示更新窗口
@@ -158,8 +188,14 @@ public class UpdateHelper {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.dismiss();
-						AsyncDownLoad asyncDownLoad = new AsyncDownLoad();
-						asyncDownLoad.execute(updateInfo);
+						NetWorkUtils netWorkUtils = new NetWorkUtils(mContext);
+						int type = netWorkUtils.getNetType();
+						if (type != 1) {
+							showNetDialog(updateInfo);
+						}else {
+							AsyncDownLoad asyncDownLoad = new AsyncDownLoad();
+							asyncDownLoad.execute(updateInfo);
+						}
 					}
 				});
 		AlertDialog updateDialog = upDialogBuilder.create();
