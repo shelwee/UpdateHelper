@@ -44,7 +44,8 @@ import com.shelwee.update.utils.URLUtils;
  * 
  * <pre>
  * UpdateManager updateManager = new UpdateManager.Builder(this)
- * 		.checkUrl(&quot;http://localhost/examples/version.jsp&quot;).isAutoInstall(false)
+ * 		.checkUrl(&quot;http://localhost/examples/version.jsp&quot;)
+ * 		.isAutoInstall(false)
  * 		.build();
  * updateManager.check();
  * </pre>
@@ -57,6 +58,7 @@ public class UpdateHelper {
 	private Context mContext;
 	private String checkUrl;
 	private boolean isAutoInstall;
+	private boolean isHintVersion;
 	private OnUpdateListener updateListener;
 	private NotificationManager notificationManager;
 	private NotificationCompat.Builder ntfBuilder;
@@ -115,6 +117,7 @@ public class UpdateHelper {
 		this.mContext = builder.context;
 		this.checkUrl = builder.checkUrl;
 		this.isAutoInstall = builder.isAutoInstall;
+		this.isHintVersion = builder.isHintNewVersion;
 		preferences_update = mContext.getSharedPreferences("Updater",
 				Context.MODE_PRIVATE);
 	}
@@ -300,12 +303,15 @@ public class UpdateHelper {
 					editor.putString("lastestVersionName",
 							updateInfo.getVersionName());
 				} else {
-					Toast.makeText(mContext, "当前已是最新版", Toast.LENGTH_LONG)
-							.show();
+					if (isHintVersion) {
+						Toast.makeText(mContext, "当前已是最新版", Toast.LENGTH_LONG).show();
+					}
 					editor.putBoolean("hasNewVersion", false);
 				}
 			} else {
-				Toast.makeText(mContext, "当前已是最新版", Toast.LENGTH_LONG).show();
+				if (isHintVersion) {
+					Toast.makeText(mContext, "当前已是最新版", Toast.LENGTH_LONG).show();
+				}
 			}
 			editor.putString("currentVersionCode", getPackageInfo().versionCode
 					+ "");
@@ -393,6 +399,7 @@ public class UpdateHelper {
 		private Context context;
 		private String checkUrl;
 		private boolean isAutoInstall = true;
+		private boolean isHintNewVersion = true;
 
 		public Builder(Context ctx) {
 			this.context = ctx;
@@ -418,6 +425,16 @@ public class UpdateHelper {
 		 */
 		public Builder isAutoInstall(boolean isAuto) {
 			this.isAutoInstall = isAuto;
+			return this;
+		}
+		
+		/**
+		 * 当没有新版本时，是否Toast提示
+		 * @param isHint 
+		 * @return true提示，false不提示
+		 */
+		public Builder isHintNewVersion(boolean isHint){
+			this.isHintNewVersion = isHint;
 			return this;
 		}
 
