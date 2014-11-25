@@ -1,10 +1,18 @@
 #UpdateHelper
 
+<<<<<<< HEAD
 ###UpdateHelper是什么？
 UpdateHelper是一个Android Library项目。
 ###UpdateHelper是干什么的？
 这个项目是为了简化Android App的迭代升级开发，任何一个项目只要引入这个library便集成了在线检查新版本的功能以及下载APK功能。
 ###UpdateHelper要怎么使用？
+=======
+##UpdateHelper是什么？
+UpdateHelper是一个Android Library项目。
+##UpdateHelper是干什么的？
+这个项目是为了简化Android App的迭代升级开发，任何一个项目只要引入这个library便集成了在线检查新版本的功能以及下载APK功能。
+##UpdateHelper要怎么使用？
+>>>>>>> a3155487190e7d562b4fd7aedc4d60b86f550e8b
 **1.首先服务器端需要提供一个接口,返回json数据格式如下：**
 ```Java
     {   
