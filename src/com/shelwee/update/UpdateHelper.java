@@ -351,7 +351,7 @@ public class UpdateHelper {
 					if (!savePath.exists())
 						savePath.mkdirs();
 					File apkFile = new File(savePath, apkName);
-					if (apkFile.exists()) {
+					if (apkFile.exists() && apkFile.length() == entity.getContentLength()) {
 						return true;
 					}
 					FileOutputStream fos = new FileOutputStream(apkFile);
