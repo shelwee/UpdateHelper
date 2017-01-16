@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">android-updater</string>
+    <string name="start_download">开始下载</string>
+    <string name="download_progress">下载进度</string>
+    <string name="was_latest_version">当前已是最新版</string>
+    <string name="finished_install">下载完成，点击安装</string>
+    <string name="download_done">任务下载完成</string>
+    <string name="download_tips">下载提示</string>
+    <string name="download_tips_network">您在目前的网络环境下继续下载将可能会消耗手机流量，请确认是否继续下载？</string>
+    <string name="download_cancel">取消下载</string>
+    <string name="download_continue">继续下载</string>
+    <string name="next_time">下次再说</string>
+    <string name="download">下载</string>
+    <string name="permission_storage">请允许应用添加存储权限</string>
+
+</resources>

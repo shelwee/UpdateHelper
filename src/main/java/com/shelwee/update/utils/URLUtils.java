@@ -1,7 +1,7 @@
 package com.shelwee.update.utils;
 
 /**
- * Created by ShelWee on 14-5-8.
+ * Created by Shelwee on 14-5-8.
  */
 public class URLUtils {
 

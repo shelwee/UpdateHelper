@@ -26,3 +26,9 @@ proguard/
 *.log
 
 .settings/
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/

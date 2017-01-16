@@ -2,7 +2,7 @@ package com.shelwee.update.pojo;
 
 
 /**
- * Created by ShelWee on 14-5-8.
+ * Created by Shelwee on 14-5-8.
  */
 public class UpdateInfo {
     private String appName;
@@ -12,6 +12,7 @@ public class UpdateInfo {
     private String apkUrl;
     private String changeLog;
     private String updateTips;
+    private boolean forceUpgrade;
 
     public String getAppName() {
         return appName;
@@ -67,5 +68,13 @@ public class UpdateInfo {
 
     public void setChangeLog(String changeLog) {
         this.changeLog = changeLog;
+    }
+
+    public boolean isForceUpgrade() {
+        return forceUpgrade;
+    }
+
+    public void setForceUpgrade(boolean forceUpgrade) {
+        this.forceUpgrade = forceUpgrade;
     }
 }

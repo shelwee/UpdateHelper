@@ -3,7 +3,7 @@ package com.shelwee.update.listener;
 import com.shelwee.update.pojo.UpdateInfo;
 
 /**
- * Created by ShelWee on 14-5-16.
+ * Created by Shelwee on 14-5-16.
  */
 public interface OnUpdateListener {
     /**
